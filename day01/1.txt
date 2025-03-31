@@ -1,0 +1,46 @@
+# command-line-arguments
+./11-内存逃逸.go:11:2: name escapes to heap:
+./11-内存逃逸.go:11:2:   flow: nameptr = &name:
+./11-内存逃逸.go:11:2:     from &name (address-of) at ./11-内存逃逸.go:12:13
+./11-内存逃逸.go:11:2:     from nameptr := &name (assign) at ./11-内存逃逸.go:12:10
+./11-内存逃逸.go:11:2:   flow: {storage for ... argument} = nameptr:
+./11-内存逃逸.go:11:2:     from nameptr (interface-converted) at ./11-内存逃逸.go:13:14
+./11-内存逃逸.go:11:2:     from ... argument (slice-literal-element) at ./11-内存逃逸.go:13:13
+./11-内存逃逸.go:11:2:   flow: {heap} = {storage for ... argument}:
+./11-内存逃逸.go:11:2:     from ... argument (spill) at ./11-内存逃逸.go:13:13
+./11-内存逃逸.go:11:2:     from fmt.Println(... argument...) (call parameter) at ./11-内存逃逸.go:13:13
+./11-内存逃逸.go:14:2: city escapes to heap:
+./11-内存逃逸.go:14:2:   flow: ptr = &city:
+./11-内存逃逸.go:14:2:     from &city (address-of) at ./11-内存逃逸.go:15:9
+./11-内存逃逸.go:14:2:     from ptr := &city (assign) at ./11-内存逃逸.go:15:6
+./11-内存逃逸.go:14:2:   flow: ~r0 = ptr:
+./11-内存逃逸.go:14:2:     from return ptr (return) at ./11-内存逃逸.go:16:2
+./11-内存逃逸.go:11:2: moved to heap: name
+./11-内存逃逸.go:14:2: moved to heap: city
+./11-内存逃逸.go:13:13: ... argument does not escape
+./11-内存逃逸.go:8:22: *p1 escapes to heap:
+./11-内存逃逸.go:8:22:   flow: {storage for ... argument} = &{storage for *p1}:
+./11-内存逃逸.go:8:22:     from *p1 (spill) at ./11-内存逃逸.go:8:22
+./11-内存逃逸.go:8:22:     from ... argument (slice-literal-element) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:8:22:   flow: {heap} = {storage for ... argument}:
+./11-内存逃逸.go:8:22:     from ... argument (spill) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:8:22:     from fmt.Println(... argument...) (call parameter) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:8:14: "*p1:" escapes to heap:
+./11-内存逃逸.go:8:14:   flow: {storage for ... argument} = &{storage for "*p1:"}:
+./11-内存逃逸.go:8:14:     from "*p1:" (spill) at ./11-内存逃逸.go:8:14
+./11-内存逃逸.go:8:14:     from ... argument (slice-literal-element) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:8:14:   flow: {heap} = {storage for ... argument}:
+./11-内存逃逸.go:8:14:     from ... argument (spill) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:8:14:     from fmt.Println(... argument...) (call parameter) at ./11-内存逃逸.go:8:13
+./11-内存逃逸.go:7:14: "p1:" escapes to heap:
+./11-内存逃逸.go:7:14:   flow: {storage for ... argument} = &{storage for "p1:"}:
+./11-内存逃逸.go:7:14:     from "p1:" (spill) at ./11-内存逃逸.go:7:14
+./11-内存逃逸.go:7:14:     from ... argument (slice-literal-element) at ./11-内存逃逸.go:7:13
+./11-内存逃逸.go:7:14:   flow: {heap} = {storage for ... argument}:
+./11-内存逃逸.go:7:14:     from ... argument (spill) at ./11-内存逃逸.go:7:13
+./11-内存逃逸.go:7:14:     from fmt.Println(... argument...) (call parameter) at ./11-内存逃逸.go:7:13
+./11-内存逃逸.go:7:13: ... argument does not escape
+./11-内存逃逸.go:7:14: "p1:" escapes to heap
+./11-内存逃逸.go:8:13: ... argument does not escape
+./11-内存逃逸.go:8:14: "*p1:" escapes to heap
+./11-内存逃逸.go:8:22: *p1 escapes to heap
