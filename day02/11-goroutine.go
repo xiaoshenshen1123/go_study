@@ -21,14 +21,6 @@ func main() {
 	for i := 0; i < 3; i++ {
 		go display(i)
 	}
-	//go func() {
-	//	count := 1
-	//	for {
-	//		fmt.Println("这是子go程：", count)
-	//		count++
-	//		time.Sleep(1 * time.Second)
-	//	}
-	//}()
 	//主go程
 	count := 1
 	for {
